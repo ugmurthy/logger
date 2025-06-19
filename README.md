@@ -30,7 +30,7 @@ logger.error('This is an error message'); // Logged to logs/combined.log and log
 logger.debug('This is a debug message'); // Logged to logs/combined.log
 ```
 
-You can change default logfile names by using following `env` variables to point to an alternate logfile names
+
 
 ```javascript
 import { logger } from '@ugm/logger';
@@ -43,8 +43,10 @@ logger.debug('This is a debug message'); // Logged to logs/combined.log
 
 ```
 
+You can change default logfile names by using following `env` variables to point to an alternate logfile names
+
 ```
 WINSTON_LOGS
 WINSTON_ERROR_LOGS
 ```
-for advances configurations, refer to the [Winston documentation](https://github.com/winstonjs/winston)
+for advanced configurations, refer to the [Winston documentation](https://github.com/winstonjs/winston)
