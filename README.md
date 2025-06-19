@@ -1,4 +1,4 @@
-## @ugm/logger
+# @ugm/logger
 
 A simple and easy-to-use logger based on [Winston](https://github.com/winstonjs/winston)
 
@@ -11,14 +11,27 @@ A simple and easy-to-use logger based on [Winston](https://github.com/winstonjs/
 ```bash
 npm install @ugm/logger
 
-## or 
+# or
 
 pnpm add @ugm/logger
 ```
 
 ## Usage
-The logger is pre-configured to write all logs to `logs/combined.log` and error logs to `logs/error.log`. Here's a basic example:
 
+The logger is pre-configured to write all logs to `logs/combined.log` and error logs to `logs/error.log`. There are two ways to use this logger:
+
+### Method 1: Import the pre-configured logger instance
+
+```javascript
+import { logger } from '@ugm/logger';
+
+// Use the logger directly
+logger.info('This is an info message'); // Logged to logs/combined.log
+logger.error('This is an error message'); // Logged to logs/combined.log and logs/error.log
+logger.debug('This is a debug message'); // Logged to logs/combined.log
+```
+
+### Method 2: Use the Logger class (for backward compatibility)
 
 ```javascript
 import { Logger } from '@ugm/logger';
@@ -30,23 +43,40 @@ logger.error('This is an error message'); // Logged to logs/combined.log and log
 logger.debug('This is a debug message'); // Logged to logs/combined.log
 ```
 
+## Configuration
 
-
-```javascript
-import { logger } from '@ugm/logger';
-
-const logger = new Logger();
-
-logger.info('This is an info message'); // Logged to logs/combined.log
-logger.error('This is an error message'); // Logged to logs/combined.log and logs/error.log
-logger.debug('This is a debug message'); // Logged to logs/combined.log
+You can change default logfile names by using the following environment variables:
 
 ```
-
-You can change default logfile names by using following `env` variables to point to an alternate logfile names
-
+WINSTON_LOGS        # Default: logs/combined.log
+WINSTON_ERROR_LOGS  # Default: logs/error.log
 ```
-WINSTON_LOGS
-WINSTON_ERROR_LOGS
+
+For development environments (when `NODE_ENV` is not 'production'), logs will also be output to the console with colorization.
+
+## Advanced Usage
+
+For advanced configurations, refer to the [Winston documentation](https://github.com/winstonjs/winston).
+
+## Examples
+
+Check out the examples directory for more detailed usage examples:
+
+- [Basic Usage](./examples/basic-usage.js) - Simple example of using the logger
+- [Custom Logger](./examples/custom-logger.js) - Advanced example showing how to customize the logger
+
+## Publishing
+
+If you're a maintainer of this package, you can publish it to npm using:
+
+```bash
+# Login to npm (if not already logged in)
+npm login
+
+# Publish the package
+pnpm publish
 ```
-for advanced configurations, refer to the [Winston documentation](https://github.com/winstonjs/winston)
+
+## License
+
+ISC

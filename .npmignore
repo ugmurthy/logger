@@ -1,0 +1,22 @@
+# Source files (only dist is published)
+src/testlogger.js
+
+# Development files
+node_modules
+.DS_Store
+.cache
+.vercel
+logs
+qdrant_storage
+
+# Build artifacts
+build
+public/build
+public/uploads
+
+# Environment variables
+.env
+
+# Other
+other_files
+prisma
