@@ -2,7 +2,7 @@
 import winston from 'winston';
 // specify logfile names if not - fallback to default
 const allLogs = process.env.WINSTON_LOGS ?? 'logs/combined.log';
-const errorLogs = process.env.WINSTON_ERROR_LOGS ?? 'logs/error.log';
+const errorLogs = process.env.WINSTON_ERROR_LOGS ?? 'log/error.log';
 // Create a logger instance with configuration
 export const logger = winston.createLogger({
     level: 'info', // Minimum log level
