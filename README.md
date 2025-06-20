@@ -65,17 +65,6 @@ Check out the examples directory for more detailed usage examples:
 - [Basic Usage](./examples/basic-usage.js) - Simple example of using the logger
 - [Custom Logger](./examples/custom-logger.js) - Advanced example showing how to customize the logger
 
-## Publishing
-
-If you're a maintainer of this package, you can publish it to npm using:
-
-```bash
-# Login to npm (if not already logged in)
-npm login
-
-# Publish the package
-pnpm publish
-```
 
 ## License
 
