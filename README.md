@@ -18,9 +18,11 @@ pnpm add @ugm/logger
 
 ## Usage
 
-The logger is pre-configured to write all logs to `logs/combined.log` and error logs to `logs/error.log`. There are two ways to use this logger:
+The logger is pre-configured to write all logs to `logs/combined.log` and error logs to `logs/error.log`. The package supports both ES Modules and CommonJS.
 
-### Method 1: Import the pre-configured logger instance
+### ES Modules (import)
+
+#### Method 1: Import the pre-configured logger instance
 
 ```javascript
 import { logger } from '@ugm/logger';
@@ -31,10 +33,35 @@ logger.error('This is an error message'); // Logged to logs/combined.log and log
 logger.debug('This is a debug message'); // Logged to logs/combined.log
 ```
 
-### Method 2: Use the Logger class (for backward compatibility)
+#### Method 2: Use the Logger class (for backward compatibility)
 
 ```javascript
 import { Logger } from '@ugm/logger';
+
+const logger = new Logger();
+
+logger.info('This is an info message'); // Logged to logs/combined.log
+logger.error('This is an error message'); // Logged to logs/combined.log and logs/error.log
+logger.debug('This is a debug message'); // Logged to logs/combined.log
+```
+
+### CommonJS (require)
+
+#### Method 1: Require the pre-configured logger instance
+
+```javascript
+const { logger } = require('@ugm/logger');
+
+// Use the logger directly
+logger.info('This is an info message'); // Logged to logs/combined.log
+logger.error('This is an error message'); // Logged to logs/combined.log and logs/error.log
+logger.debug('This is a debug message'); // Logged to logs/combined.log
+```
+
+#### Method 2: Use the Logger class (for backward compatibility)
+
+```javascript
+const { Logger } = require('@ugm/logger');
 
 const logger = new Logger();
 

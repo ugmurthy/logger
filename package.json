@@ -1,6 +1,6 @@
 {
 	"name": "@ugm/logger",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": false,
 	"description": "A simple and easy to use logger based on winston",
 	"homepage": "https://github.com/ugmurthy/logger",
@@ -9,6 +9,7 @@
 	"exports": {
 		".": {
 			"import": "./dist/index.js",
+			"require": "./dist/cjs/index.js",
 			"types": "./dist/index.d.ts"
 		}
 	},
@@ -16,10 +17,11 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsc",
+		"build": "node build.cjs",
 		"prepublishOnly": "pnpm run build",
 		"test": "node src/testlogger.js",
-		"test:local": "node test-local.js"
+		"test:local": "node test-local.js",
+		"test:cjs": "node test-cjs.cjs"
 	},
 	"dependencies": {
 		"winston": "^3.17.0"
